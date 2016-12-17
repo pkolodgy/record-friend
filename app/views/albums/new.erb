@@ -1,0 +1,11 @@
+<h4>Add an album to the database:</h4>
+
+<%= erb :'_errors' %>
+
+<form class="new-album-form" action="/albums" method="post">
+  <input type="text" name="album[artist]" placeholder="artist">
+  <input type="text" name="album[title]" placeholder="title">
+  <input type="text" name="album[year]" placeholder="year">
+  <input type="text" name="album[label]" placeholder="label">
+  <input type="submit" value="submit">
+</form>
