@@ -5,6 +5,6 @@ class Artist < ActiveRecord::Base
   has_many :tags, as: :taggable
 
   # Validations
-  validates :name, :location, presence: true
+  validates :name, presence: true
   validates :name, uniqueness: true
 end

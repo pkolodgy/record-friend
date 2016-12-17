@@ -1,0 +1,17 @@
+<h4>All albums:</h4>
+<div class="album-list">
+  <% @all_albums.each do |album| %>
+    <div id="<%= album.id %>">
+      <p>Title: <%= album.title %></p>
+      <p>Artist: <%= album.artist.name %></p>
+      <p>Label: <%= album.label.name %></p>
+      <p>Year: <%= album.release_year %></p>
+      <p>Users:
+        <% album.users.each do |user| %>
+          <%= user.username %>
+        <% end %>
+      </p>
+      <br>
+    </div>
+  <% end %>
+</div>
