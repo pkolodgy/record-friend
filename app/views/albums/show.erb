@@ -1,4 +1,9 @@
 <h4><%= @album.title %> by <%= @album.artist.name %></h4>
 Label: <%= @album.label.name %><br>
 Year: <%= @album.release_year %><br>
-Average Rating: <%= @avg_rating %>
+Average Rating: <%= @avg_rating %><br>
+In collections: <br>
+<% @album.users.each do |user| %>
+  <a href="/users/<%= user.id %>"><%= user.username %></a>
+<% end %>
+</p>
