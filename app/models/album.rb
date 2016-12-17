@@ -9,5 +9,5 @@ class Album < ActiveRecord::Base
 
   # Validations
   validates :title, :release_year, presence: true
-  validates :title, :uniqueness => {:scope => [:artist_id, :label_id, :release_year]}
+  validates :title, uniqueness: { scope: [:artist_id, :label_id, :release_year]}
 end
