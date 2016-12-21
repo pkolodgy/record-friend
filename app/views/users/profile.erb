@@ -1,0 +1,8 @@
+<h3>Welcome, <%= current_user.username %></h3>
+<p>Your albums...</p>
+<ul>
+  <% current_user.albums.each do |album| %>
+    <li><a href="/albums/<%= album.id %>"><%= album.title %></a> by
+    <a href="/artist/<%= album.artist.id %>"><%= album.artist.name %></a>, rating: <%= RecordCollection.where(album_id: album.id, user_id: current_user.id).pluck(:rating).join %></li>
+  <% end %>
+</ul>

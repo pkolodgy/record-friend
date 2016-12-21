@@ -6,11 +6,15 @@ post '/users' do
   @user = User.new(params[:user])
   if @user.save
     session[:user_id] = @user.id
-    redirect "users/#{@user.id}/profile"
+    redirect "users/profile"
   else
     @errors = @user.errors.full_messages
     erb :'users/new'
   end
+end
+
+get '/users/profile' do
+  erb :'users/profile'
 end
 
 get '/users/:id' do

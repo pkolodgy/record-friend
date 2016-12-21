@@ -1,4 +1,9 @@
 <h4><%= @album.title %> by <%= @album.artist.name %></h4>
+
+<% if current_user %>
+  <p>Your Rating: <%= RecordCollection.where(album: @album, user: current_user).pluck(:rating)[0] %></p>
+<% end %>
+
 Label: <%= @album.label.name %><br>
 Year: <%= @album.release_year %><br>
 Average Rating: <%= @avg_rating %><br>
@@ -7,3 +12,10 @@ In collections: <br>
   <a href="/users/<%= user.id %>"><%= user.username %></a>
 <% end %>
 </p>
+
+<% if current_user %>
+  <form class="add-album-button" action="/record_collections" method="post">
+    <input type="hidden" name="album_id" value="<%= @album.id %>">
+    <input type="submit" value="Add to Collection">
+  </form>
+<% end %>
